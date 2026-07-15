@@ -1,0 +1,15 @@
+{
+  "name": "monster-mayhem",
+  "version": "1.0.0",
+  "description": "Monster Mayhem - a real-time, multi-game, multiplayer board game built with Node.js and Socket.IO",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.8.3"
+  }
+}

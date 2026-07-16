@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monster Mayhem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Monster Mayhem</h1>
+    <div class="global-stats">
+      <span>Total games played across the server: <strong id="gamesPlayed">0</strong></span>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="lobbyScreen" class="screen">
+      <div class="panel">
+        <h2>Join the Mayhem</h2>
+        <label>
+          Username
+          <input id="usernameInput" type="text" maxlength="20" placeholder="e.g. Sam" />
+        </label>
+        <label>
+          Number of players (2-4)
+          <select id="playerCountSelect">
+            <option value="2">2 players</option>
+            <option value="3">3 players</option>
+            <option value="4">4 players</option>
+          </select>
+        </label>
+        <button id="quickPlayBtn">Quick Play</button>
+        <p class="hint">You'll be placed into a waiting game and it will start automatically once enough players join.</p>
+
+        <div class="my-stats">
+          <h3>Your record</h3>
+          <p>Wins: <strong id="myWins">0</strong> &nbsp; Losses: <strong id="myLosses">0</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitingScreen" class="screen hidden">
+      <div class="panel">
+        <h2>Waiting for players&hellip;</h2>
+        <p id="waitingText"></p>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen hidden">
+      <div class="game-layout">
+        <div class="board-area">
+          <div id="board" class="board"></div>
+          <div class="controls">
+            <div class="monster-picker">
+              <span>Place:</span>
+              <label><input type="radio" name="monsterType" value="vampire" checked /> Vampire</label>
+              <label><input type="radio" name="monsterType" value="werewolf" /> Werewolf</label>
+              <label><input type="radio" name="monsterType" value="ghost" /> Ghost</label>
+            </div>
+            <button id="endTurnBtn">End Turn</button>
+            <span id="selectionHint" class="hint"></span>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <h3>Round <span id="roundNumber">1</span></h3>
+          <div id="playersList" class="players-list"></div>
+
+          <h3>Your record</h3>
+          <p>Wins: <strong id="myWinsGame">0</strong> &nbsp; Losses: <strong id="myLossesGame">0</strong></p>
+
+          <h3>Log</h3>
+          <div id="logPanel" class="log-panel"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="endScreen" class="screen hidden">
+      <div class="panel">
+        <h2 id="endTitle">Game Over</h2>
+        <p id="endMessage"></p>
+        <button id="playAgainBtn">Back to Lobby</button>
+      </div>
+    </section>
+
+    <div id="errorToast" class="toast hidden"></div>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

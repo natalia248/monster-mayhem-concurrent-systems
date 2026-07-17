@@ -1,13 +1,4 @@
 {
-  "gamesPlayed": 2,
-  "players": {
-    "Natalia": {
-      "wins": 2,
-      "losses": 0
-    },
-    "Leonardo": {
-      "wins": 0,
-      "losses": 2
-    }
-  }
+  "gamesPlayed": 0,
+  "players": {}
 }
